@@ -1,3 +1,4 @@
+import { AuthenticationService } from "../services/authentication.service";
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -7,6 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { TasksComponent } from './tasks/tasks.component';
 import { NewTaskComponent } from './new-task/new-task.component';
 import { RegistrationComponent } from './registration/registration.component';
+import { HttpClientModule } from "@angular/common/http";
 import { FormsModule } from "@angular/forms";
 import { RouterModule,Routes } from "@angular/router";
 const appRoutes:Routes=[
@@ -27,9 +29,9 @@ const appRoutes:Routes=[
     RegistrationComponent
   ],
   imports: [
-    BrowserModule,RouterModule.forRoot(appRoutes) ,FormsModule
+    BrowserModule,RouterModule.forRoot(appRoutes) ,FormsModule,HttpClientModule
   ],
-  providers: [],
+  providers: [AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

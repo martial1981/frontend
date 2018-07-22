@@ -1,17 +1,22 @@
 <div class="container">
+<div class="col-md-6 col-md-offset-3">
+<div class="alert alert-danger" *ngIf="mode==1">
+
+<strong> Bad credentials...  </strong>
+</div>
 <div class="panel panel-primary" >
 <div class="panel-heading">Auhtentification</div>
 <div class="panel-body">
 <form #f="ngForm"  (ngSubmit)="onLogin(f.value)"  >
 <div class="form-group">
-<label class="form-control">UserName:</label>
-<input ngModel=""  type="text" name="username" required/>
+<label class="control-label">UserName:</label>
+<input class="form-control" ngModel=""  type="text" name="username" required/>
 
 
 </div>
 <div class="form-group">
-<label class="form-control">Password:</label>
-<input ngModel=""  type="password" name="Password" required/>
+<label class="control-label">Password:</label>
+<input  class="form-control" ngModel=""  type="password" name="password" required/>
 
 
 </div>
@@ -22,5 +27,7 @@
 
 </div>
 </div>
+</div>
+
 
 </div>

@@ -1,3 +1,4 @@
+import { AuthenticationService } from "../../services/authentication.service";
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,13 +7,32 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  mode:number=0;
 
-  constructor() { }
+  constructor(private authService:AuthenticationService) { }
 
   ngOnInit() {
     
   }
-  onLogin(){
+  onLogin(user){
+    this.authService.login(user)
+    .subscribe(resp=>{
+      let jwt=resp.headers.get('Authorization');
+      console.log(resp.headers.get('Authorization'));
+      
+      
+    },err=>{
+      this.mode=1;
+      
+    }
+    
+    
+    
+    
+    
+    )
+    
+  }
 
 }
-}
+
