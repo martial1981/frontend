@@ -1,3 +1,4 @@
+import { AuthenticationService } from "../../services/authentication.service";
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +7,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./new-task.component.css']
 })
 export class NewTaskComponent implements OnInit {
+  task :any;
 
-  constructor() { }
+  constructor(public authService:AuthenticationService) { }
 
   ngOnInit() {
+  }
+  
+  onSaveTask(task){
+    this.authService.saveTask(task)
+     .subscribe(resp=>{
+       this.task=resp;
+       },err=>{console.log(err);
+     })
+    
   }
 
 }

@@ -10,7 +10,7 @@ import { Router } from "@angular/router";
 export class TasksComponent implements OnInit {
   tasks;
 
-  constructor(private authService:AuthenticationService,private router:Router) { }
+  constructor(public authService:AuthenticationService,private router:Router) { }
 
   ngOnInit() {
     this.authService.getTasks()
@@ -23,6 +23,11 @@ export class TasksComponent implements OnInit {
       this.router.navigateByUrl('/login')
       
     })
+  }
+  onNewTask(){
+      this.router.navigateByUrl('/new-task');
+    
+    
   }
 
 }

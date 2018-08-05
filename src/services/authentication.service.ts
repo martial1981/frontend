@@ -2,12 +2,13 @@
 import { HttpHeaders } from "@angular/common/http";
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import {JwtHelper} from 'angular2-jwt';
 @Injectable()
 
 export class AuthenticationService{
   private host:string="http://localhost:8080";
   private jwtToken=null;
-  
+  private roles:Array<any>;
   constructor(private http:HttpClient){
     
   }
@@ -17,8 +18,10 @@ export class AuthenticationService{
   }
   
   saveToken(jwt:string){
+    this.jwtToken=jwt;
     localStorage.setItem('token',jwt);
-    
+    let jwtHelper=new JwtHelper();
+    this.roles=jwtHelper.decodeToken(this.jwtToken).roles;
     
     
   }
@@ -35,6 +38,16 @@ export class AuthenticationService{
    localStorage.removeItem('token');
  }
  
+ isAdmin(){
+   for ( let r of this.roles){
+     if (r.authority=='ADMIN') return true ;
+   }
+   return false ;
+   
+ }
   
-  
+  saveTask(task){
+    return this.http.post(this.host+"/tasks",task,{headers:new HttpHeaders({ 'Authorization':this.jwtToken})});
+    
+  }
 }
