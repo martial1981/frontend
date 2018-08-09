@@ -29,5 +29,10 @@ export class TasksComponent implements OnInit {
     
     
   }
+   onGestionRessourcesReseaux(){
+      this.router.navigateByUrl('/gestion-de-ressources-reseaux');
+    
+    
+  }
 
 }

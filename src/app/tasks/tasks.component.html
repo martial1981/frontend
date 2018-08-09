@@ -2,6 +2,9 @@
 <P></P>
 <button class="btn btn-danger" (click)="onNewTask()"   *ngIf="authService.isAdmin()">New Task </button>
 <P></P>
+<P></P>
+<button class="btn btn-danger" (click)="onGestionRessourcesReseaux()"   *ngIf="authService.isAdmin()">Gestion De Ressources Reseaux </button>
+<P></P>
 <table class="table table-striped">
 <tr>
 <th>ID</th><th>Task Name</th>
