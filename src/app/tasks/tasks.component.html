@@ -5,6 +5,24 @@
 <P></P>
 <button class="btn btn-danger" (click)="onGestionRessourcesReseaux()"   *ngIf="authService.isAdmin()">Gestion De Ressources Reseaux </button>
 <P></P>
+<P></P>
+<button class="btn btn-danger" (click)="onGestionDesUtilisateurs()"   *ngIf="authService.isAdmin()">Gestion Des Utilisateurs</button>
+<P></P>
+<P></P>
+<button class="btn btn-danger" (click)="onGestionDesTickets()"   *ngIf="authService.isAdmin()">Gestion Des Tickets</button>
+<P></P>
+<P></P>
+<button class="btn btn-danger" (click)="onGestionDesConfig()"   *ngIf="authService.isAdmin()">Gestion De La Configurations Réseaux</button>
+<P></P>
+<P></P>
+<button class="btn btn-danger" (click)="onRoutinesTroublehsoot()"   *ngIf="authService.isAdmin()">Routine Troubelshoot  pour Admin</button>
+<P></P>
+<P></P>
+<button class="btn btn-danger" (click)="onRoutinesTroublehsoot()"   *ngIf="authService.isUser()">Routine Troubelshoot  pour User</button>
+<P></P>
+<P></P>
+<button class="btn btn-danger" (click)="onGestionDesTickets()"   *ngIf="authService.isUser()">Gestion Des Tickets</button>
+<P></P>
 <table class="table table-striped">
 <tr>
 <th>ID</th><th>Task Name</th>

@@ -45,6 +45,13 @@ export class AuthenticationService{
    return false ;
    
  }
+  isUser(){
+   for ( let r of this.roles){
+     if (r.authority=='USER') return true ;
+   }
+   return false ;
+   
+ }
   
   saveTask(task){
     return this.http.post(this.host+"/tasks",task,{headers:new HttpHeaders({ 'Authorization':this.jwtToken})});

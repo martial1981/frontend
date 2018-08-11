@@ -34,5 +34,19 @@ export class TasksComponent implements OnInit {
     
     
   }
-
+  onGestionDesUtilisateurs(){
+    this.router.navigateByUrl('/gestion-des-utilisateurs');
+  }
+  onGestionDesTickets(){
+   this.router.navigateByUrl('/gestion-des-tickets');
+  
+  }
+onGestionDesConfig(){
+  this.router.navigateByUrl('/gestion-de-la-configuration-des-equipements');
+  
+}
+  onRoutinesTroublehsoot(){
+    this.router.navigateByUrl('/routines-test-troubelshoot');
+    
+  }
 }
