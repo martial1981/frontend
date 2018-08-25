@@ -1,0 +1,21 @@
+<form #vlanForm="ngForm"  (ngSubmit)="onSubmitvlan(vlanForm.value)" >
+<div class="form-group">
+<label>Nombre Vlan </label>
+<input class="form-control" ngModel=""  placeholder="Nombre" type="text" name="id" required />
+</div>
+<div class="form-group">
+<label>Name Vlan </label>
+<input class="form-control" ngModel=""  placeholder="Nom de la Vlan" type="text" name="name" required />
+</div>
+<div class="form-group">
+<label>Type Vlan</label>
+<input class="form-control" ngModel=""  placeholder="type de  Vlan" type="text" name="vlan_type" required />
+</div>
+
+
+<div class="form-group">
+<button class="btn btn-default" type="submit" [disabled]="!vlanForm.valid"><i class="fa fa-floppy-o"></i>Sauvgarde </button>
+<button class="btn btn-default" type="button" (click)="RestForm(vlanForm)" >Effacer </button>
+
+</div>
+</form>

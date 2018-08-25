@@ -1,7 +1,7 @@
 import { AuthenticationService } from "../services/authentication.service";
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import{ ToastrModule } from 'ngx-toastr';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -38,6 +38,11 @@ import { RoutinesTestPingComponent } from './routines-test-ping/routines-test-pi
 import { RoutinesTestTracertComponent } from './routines-test-tracert/routines-test-tracert.component';
 import { RoutinesTestSaveRapportComponent } from './routines-test-save-rapport/routines-test-save-rapport.component';
 import { RoutinesTestSubmitRapportComponent } from './routines-test-submit-rapport/routines-test-submit-rapport.component';
+import { VlanComponent } from './vlan/vlan.component';
+import { SysnameComponent } from './sysname/sysname.component';
+import { VlanListComponent } from './vlan-list/vlan-list.component';
+import { VlanFormComponent } from './vlan-form/vlan-form.component';
+
 const appRoutes:Routes=[
 {path:"login",component:LoginComponent},
 {path:"tasks",component:TasksComponent},
@@ -48,6 +53,7 @@ const appRoutes:Routes=[
 {path:"gestion-des-tickets",component:GestionDesTicketsComponent },
 {path:"gestion-de-la-configuration-des-equipements",component:GestionDeLaConfigurationDesEquipementsComponent },
 {path:"routines-test-troubelshoot",component:RoutinesTestTroubelshootComponent },
+{path:"vlan",component:VlanComponent},
 {path:"",redirectTo:"login",pathMatch:"full"},
 
 ];
@@ -85,10 +91,14 @@ const appRoutes:Routes=[
     RoutinesTestPingComponent,
     RoutinesTestTracertComponent,
     RoutinesTestSaveRapportComponent,
-    RoutinesTestSubmitRapportComponent
+    RoutinesTestSubmitRapportComponent,
+    VlanComponent,
+    SysnameComponent,
+    VlanListComponent,
+    VlanFormComponent
   ],
   imports: [
-    BrowserModule,RouterModule.forRoot(appRoutes) ,FormsModule,HttpClientModule
+    BrowserModule,RouterModule.forRoot(appRoutes) ,FormsModule,HttpClientModule,ToastrModule.forRoot()
   ],
   providers: [AuthenticationService],
   bootstrap: [AppComponent]

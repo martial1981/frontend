@@ -9,7 +9,7 @@ import { Router } from "@angular/router";
 })
 export class TasksComponent implements OnInit {
   tasks;
-
+vlans;
   constructor(public authService:AuthenticationService,private router:Router) { }
 
   ngOnInit() {

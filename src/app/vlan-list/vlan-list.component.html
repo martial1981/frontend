@@ -1,0 +1,12 @@
+<table class="table table-striped">
+<tr>
+<th>ID</th><th>Vlan Name</th><th>Vlan Type</th><th align="center">Action</th>
+
+<tr *ngFor="let t of vlans">
+
+<td>{{t.id}}</td>
+<td>{{t.name}}</td>
+<td>{{t.vlan_type}}</td>
+<td><button class="btn btn-success"(click)="onEdit()" > mise a jour </button> <button class="btn btn-danger"> supresion </button>  </td>
+</tr>
+</table>

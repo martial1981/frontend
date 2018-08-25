@@ -57,4 +57,13 @@ export class AuthenticationService{
     return this.http.post(this.host+"/tasks",task,{headers:new HttpHeaders({ 'Authorization':this.jwtToken})});
     
   }
+    saveVlan(vlan){
+    return this.http.post(this.host+"/vlan",vlan,{headers:new HttpHeaders({ 'Authorization':this.jwtToken})});
+    
+  }
+    
+  getVlans(){
+    if (this.jwtToken==null)this.loadToken();
+    return this.http.get(this.host+"/vlan",{headers:new HttpHeaders({'Authorization':this.jwtToken})});
+  }
 }
