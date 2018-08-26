@@ -2,7 +2,6 @@ import { AuthenticationService } from "../services/authentication.service";
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import{ ToastrModule } from 'ngx-toastr';
-
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { TasksComponent } from './tasks/tasks.component';
@@ -40,7 +39,7 @@ import { RoutinesTestSaveRapportComponent } from './routines-test-save-rapport/r
 import { RoutinesTestSubmitRapportComponent } from './routines-test-submit-rapport/routines-test-submit-rapport.component';
 import { VlanComponent } from './vlan/vlan.component';
 import { SysnameComponent } from './sysname/sysname.component';
-import { VlanListComponent } from './vlan-list/vlan-list.component';
+
 import { VlanFormComponent } from './vlan-form/vlan-form.component';
 
 const appRoutes:Routes=[
@@ -54,6 +53,7 @@ const appRoutes:Routes=[
 {path:"gestion-de-la-configuration-des-equipements",component:GestionDeLaConfigurationDesEquipementsComponent },
 {path:"routines-test-troubelshoot",component:RoutinesTestTroubelshootComponent },
 {path:"vlan",component:VlanComponent},
+{path:"vlan-form",component:VlanFormComponent},
 {path:"",redirectTo:"login",pathMatch:"full"},
 
 ];
@@ -94,7 +94,7 @@ const appRoutes:Routes=[
     RoutinesTestSubmitRapportComponent,
     VlanComponent,
     SysnameComponent,
-    VlanListComponent,
+    
     VlanFormComponent
   ],
   imports: [

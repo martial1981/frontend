@@ -3,6 +3,7 @@ import { HttpHeaders } from "@angular/common/http";
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import {JwtHelper} from 'angular2-jwt';
+import { Observable } from "rxjs";
 @Injectable()
 
 export class AuthenticationService{
@@ -57,12 +58,12 @@ export class AuthenticationService{
     return this.http.post(this.host+"/tasks",task,{headers:new HttpHeaders({ 'Authorization':this.jwtToken})});
     
   }
-    saveVlan(vlan){
+    saveVlan(vlan: any):Observable<any>{
     return this.http.post(this.host+"/vlan",vlan,{headers:new HttpHeaders({ 'Authorization':this.jwtToken})});
     
   }
     
-  getVlans(){
+  getVlans():Observable<any>{
     if (this.jwtToken==null)this.loadToken();
     return this.http.get(this.host+"/vlan",{headers:new HttpHeaders({'Authorization':this.jwtToken})});
   }

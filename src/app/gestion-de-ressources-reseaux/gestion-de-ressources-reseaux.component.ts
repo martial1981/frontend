@@ -16,7 +16,7 @@ export class GestionDeRessourcesReseauxComponent implements OnInit {
 
   
    onVlanClick(){
-    this.router.navigateByUrl('/vlan');
+    this.router.navigateByUrl('/vlan-form');
     
   } 
 }
