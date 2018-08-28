@@ -67,4 +67,16 @@ export class AuthenticationService{
     if (this.jwtToken==null)this.loadToken();
     return this.http.get(this.host+"/vlan",{headers:new HttpHeaders({'Authorization':this.jwtToken})});
   }
+    editVlan(id :any):Observable<any>{
+    if (this.jwtToken==null)this.loadToken();
+    return this.http.get(this.host+"/vlan/"+id,{headers:new HttpHeaders({'Authorization':this.jwtToken})});
+  } 
+   update(vlan: any):Observable<any>{
+    return this.http.post(this.host+"/updatevlan",vlan,{headers:new HttpHeaders({ 'Authorization':this.jwtToken})});
+    
+  }
+  erase(id :any):Observable<any>{
+    if (this.jwtToken==null)this.loadToken();
+    return this.http.delete(this.host+"/vlan/"+id,{headers:new HttpHeaders({'Authorization':this.jwtToken})});
+  } 
 }

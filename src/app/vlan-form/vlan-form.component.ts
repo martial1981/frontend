@@ -15,16 +15,23 @@ export class VlanFormComponent implements OnInit {
   constructor(public authService:AuthenticationService,private toastr :ToastrService, private router:Router   ) { }
 
   ngOnInit() {
-      this.authService.getVlans()
+    this.getVlans();
+      
+  }
+  
+  getVlans(){
+    
+    this.authService.getVlans()
     .subscribe(data=>{
       this.vlans=data;
       
       
     }, err=>{
-      this.authService.logout();
-      this.router.navigateByUrl('/login')
+     this.authService.logout();
+      this.router.navigateByUrl('/login');
       
     })
+    
   }
 //  
 //  onSaveTask(task){
@@ -53,5 +60,38 @@ this.toastr.success('enregistrement réussi!','vlan enregistré');
     
     
   }
+  editvlan(id :any ){
+    this.authService.editVlan(id)
+    .subscribe(resp=>{
+       
+      this.vlan=resp;
+       },err=>{console.log(err);
+    })
+  }
+    deletevlan(id :any ){
+    this.authService.erase(id).subscribe(
+      resp=>{
+       
+       this.getVlans();
+      this.vlan={};
+       },err=>{console.log(err);
+    })
+  }
+  
+  
+  
+     update(vlan :any){
+    this.authService.update(vlan)
+    .subscribe(resp=>{
+       this.getVlans();
+      this.vlan={};
+       },err=>{console.log(err);
+    })
+this.toastr.success('Mise à jour réussite !','vlan Mis à jour ');
+
+  }
+  
+  
+ 
 
 }

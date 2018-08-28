@@ -5,10 +5,10 @@
 <div class="col-md-7">
 
 <form #vlanForm="ngForm"  >
-<div class="form-group">
+ <div class="form-group">
 <label>Nombre Vlan </label>
 <input class="form-control"   placeholder="Nombre" type="text" [(ngModel)]="vlan.id" id="id" name="id" required />
-</div>
+</div> 
 <div class="form-group">
 <label>Name Vlan </label>
 <input class="form-control"  placeholder="Nom de la Vlan" [(ngModel)]="vlan.name" id="name"  type="text" name="name" required />
@@ -20,7 +20,8 @@
 
 
 <div class="form-group">
-<button class="btn btn-default" type="submit" (click)="onSubmitvlan(vlan)"  [disabled]="!vlanForm.valid"><i class="fa fa-floppy-o"></i>Sauvgarde </button>
+<button class="btn btn-default" type="submit" (click)="update(vlan)"  [disabled]="!vlanForm.valid" >Mise à jour</button>
+<button class="btn btn-default" type="submit" (click)="onSubmitvlan(vlan)"  [disabled]="!vlanForm.valid" >Sauvgarde</button>
 <button class="btn btn-default" type="button" (click)="RestForm(vlanForm)" >Effacer </button>
 
 </div>
