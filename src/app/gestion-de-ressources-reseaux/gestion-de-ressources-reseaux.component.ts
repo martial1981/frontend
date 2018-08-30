@@ -8,6 +8,7 @@ import { Router } from "@angular/router";
   styleUrls: ['./gestion-de-ressources-reseaux.component.css']
 })
 export class GestionDeRessourcesReseauxComponent implements OnInit {
+  
 
   constructor(public authService:AuthenticationService,private router:Router) { }
 
@@ -19,4 +20,9 @@ export class GestionDeRessourcesReseauxComponent implements OnInit {
     this.router.navigateByUrl('/vlan-form');
     
   } 
+  onDashboardAdminClick(){
+  
+     this.router.navigateByUrl('/dasboard-admin');
+  }
+  
 }

@@ -41,6 +41,8 @@ import { VlanComponent } from './vlan/vlan.component';
 import { SysnameComponent } from './sysname/sysname.component';
 
 import { VlanFormComponent } from './vlan-form/vlan-form.component';
+import{ ChartModule } from 'angular2-chartjs';
+import { MyChartComponent } from './my-chart/my-chart.component';
 
 const appRoutes:Routes=[
 {path:"login",component:LoginComponent},
@@ -54,6 +56,7 @@ const appRoutes:Routes=[
 {path:"routines-test-troubelshoot",component:RoutinesTestTroubelshootComponent },
 {path:"vlan",component:VlanComponent},
 {path:"vlan-form",component:VlanFormComponent},
+{path:"dasboard-admin",component:DasboardAdminComponent},
 {path:"",redirectTo:"login",pathMatch:"full"},
 
 ];
@@ -95,10 +98,12 @@ const appRoutes:Routes=[
     VlanComponent,
     SysnameComponent,
     
-    VlanFormComponent
+    VlanFormComponent,
+    
+    MyChartComponent
   ],
   imports: [
-    BrowserModule,RouterModule.forRoot(appRoutes) ,FormsModule,HttpClientModule,ToastrModule.forRoot()
+    BrowserModule,RouterModule.forRoot(appRoutes) ,FormsModule,HttpClientModule,ToastrModule.forRoot() , ChartModule
   ],
   providers: [AuthenticationService],
   bootstrap: [AppComponent]

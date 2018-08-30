@@ -69,8 +69,8 @@ this.toastr.success('enregistrement réussi!','vlan enregistré');
     })
   }
     deletevlan(id :any ){
-    this.authService.erase(id).subscribe(
-      resp=>{
+    this.authService.erase(id)
+      .subscribe(resp=>{
        
        this.getVlans();
       this.vlan={};
