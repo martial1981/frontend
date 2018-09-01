@@ -17,7 +17,10 @@
 <label>Type Vlan</label>
 <input class="form-control" placeholder="type de  Vlan" [(ngModel)]="vlan.vlan_type" id="vlan_type"  type="text" name="vlan_type" required />
 </div>
-
+<div class="form-group">
+<label>Quality Of Service</label>
+<input class="form-control" placeholder="Quality Of Service" [(ngModel)]="vlan.qos" id="qos"  type="text" name="qos" required />
+</div>
 
 <div class="form-group">
 <button class="btn btn-default" type="submit" (click)="update(vlan)"  [disabled]="!vlanForm.valid" >Mise à jour</button>
@@ -31,13 +34,14 @@
 
 <table class="table table-striped">
 <tr>
-<th>ID</th><th>Vlan Name</th><th>Vlan Type</th><th align="center">Action</th>
+<th>ID</th><th>Vlan Name</th><th>Vlan Type</th><th align="center">Quality Of Service</th><th align="center">Action</th>
 
 <tr *ngFor="let vlan of vlans">
 
 <td>{{vlan.id}}</td>
 <td>{{vlan.name}}</td>
 <td>{{vlan.vlan_type}}</td>
+<td>{{vlan.qos}}</td>
 <td><a href="javascript:void(0)" (click)="editvlan(vlan.id)"><i class="fa fa-eye" aria-hidden="true"></i></a> <a href="javascript:void(0)" (click)="deletevlan(vlan.id)" ><i class="fa fa-trash" aria-hidden="true"></i></a> </td>
 </tr>
 </table>

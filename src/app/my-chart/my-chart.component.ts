@@ -10,6 +10,7 @@ export class MyChartComponent implements OnInit {
     type: string  = 'bar';
   @Input()
   title:string ='Titre';
+  @Input()
 data = {
   labels: ["January", "February", "March", "April", "May", "June", "July"],
   datasets: [
@@ -23,6 +24,7 @@ data = {
     }
   ]
 };
+  @Input()
 options = {
   responsive: true,
   maintainAspectRatio: false

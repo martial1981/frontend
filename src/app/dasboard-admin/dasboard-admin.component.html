@@ -1,20 +1,22 @@
-<div class="row">
 
-
-<div class="col-lg-5">
-<app-my-chart  [type]="'bar'" [title]="'vlan par type'" ></app-my-chart>
-</div>
-
-<div class="col-lg-7">
-<app-my-chart [type]="'line'" [title]="'representation linéaire des vlans'" ></app-my-chart>
+<app-my-chart 
+[type]="'bar'" 
+[title]="'vlan par Quality Of Service'" 
+[data]="dataVlanParType">
 
 
 
-</div>
-</div>
+</app-my-chart>
+
+
+<app-my-chart 
+[type]="'line'" 
+[title]="'Représentation linéaires des Vlan par Qos '" 
+[data]="dataVlanParType">
 
 
 
+</app-my-chart>
 
 
 
