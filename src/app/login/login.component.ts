@@ -39,6 +39,11 @@ export class LoginComponent implements OnInit {
   {
   alert("connected to the switch");
   }
+  
+  onClickregister(){
+    this.router.navigateByUrl('/register');
+    
+  }
 
 }
 

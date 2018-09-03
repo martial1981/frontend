@@ -1,1 +1,12 @@
+<table class="table table-striped">
+<tr>
+<th>ID</th><th>Vlan Name</th><th>Vlan Type</th>
 
+<tr *ngFor="let vlan of vlans">
+
+<td>{{vlan.vlan_id}}</td>
+<td>{{vlan.name}}</td>
+
+
+</tr>
+</table>

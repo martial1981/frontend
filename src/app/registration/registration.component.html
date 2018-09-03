@@ -1,3 +1,36 @@
-<p>
-  registration works!
-</p>
+<div class="text-center">
+<h2 class="jumbotron"> User Register </h2>
+</div>
+<div class="row">
+<div class="col-md-7">
+
+<form #registerForm="ngForm"  >
+ <div class="form-group">
+<label>User Name </label>
+<input class="form-control"   placeholder="nom de l 'utilisateur" type="text" [(ngModel)]="user.username" id="username" name="username" required />
+</div> 
+<div class="form-group">
+<label>Password </label>
+<input class="form-control"  placeholder="mot de de passe" [(ngModel)]="user.password" id="name"  type="password" name="user.password" required />
+</div>
+<div class="form-group">
+<label>Re-Password</label>
+<input class="form-control" placeholder="retaper le mot de passe" [(ngModel)]="user.repassword" id="repassword"  type="password" name="user.repassword" required />
+</div>
+
+
+<div class="form-group">
+<button class="btn btn-default" type="submit" (click)="UpdateUser(user)"  [disabled]="!registerForm.valid" >Mise à jour</button>
+<button class="btn btn-default" type="submit" (click)="onSubmitUser(user)"  [disabled]="!registerForm.valid" >Sauvgarde</button>
+<button class="btn btn-default" type="button" (click)="ResetFormRegister(registerForm)" >Effacer </button>
+
+</div>
+</form>
+
+
+
+
+
+</div>
+
+</div>

@@ -20,6 +20,10 @@ export class GestionDeRessourcesReseauxComponent implements OnInit {
     this.router.navigateByUrl('/vlan-form');
     
   } 
+    onVlanSwitchClick(){
+    this.router.navigateByUrl('/vlan');
+    
+  } 
   onDashboardAdminClick(){
   
      this.router.navigateByUrl('/dasboard-admin');

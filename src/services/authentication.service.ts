@@ -1,5 +1,6 @@
 
 import { HttpHeaders } from "@angular/common/http";
+
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import {JwtHelper} from 'angular2-jwt';
@@ -8,6 +9,8 @@ import { Observable } from "rxjs";
 
 export class AuthenticationService{
   private host:string="http://localhost:8080";
+   private host1:string="http://10.10.10.1/rest/v1";
+  
   private jwtToken=null;
   private roles:Array<any>;
   constructor(private http:HttpClient){
@@ -67,6 +70,11 @@ export class AuthenticationService{
     if (this.jwtToken==null)this.loadToken();
     return this.http.get(this.host+"/vlan",{headers:new HttpHeaders({'Authorization':this.jwtToken})});
   }
+  //fromthe switch
+    getVlansSwitch():Observable<any>{
+    if (this.jwtToken==null)this.loadToken();
+    return this.http.get(this.host1+"/vlans");
+  }
     editVlan(id :any):Observable<any>{
     if (this.jwtToken==null)this.loadToken();
     return this.http.get(this.host+"/vlan/"+id,{headers:new HttpHeaders({'Authorization':this.jwtToken})});
@@ -79,4 +87,10 @@ export class AuthenticationService{
     if (this.jwtToken==null)this.loadToken();
     return this.http.delete(this.host+"/vlan/"+id,{headers:new HttpHeaders({'Authorization':this.jwtToken})});
   } 
+  
+  saveUser(user: any):Observable<any>{
+    return this.http.post(this.host+"/register",user);
+  
+  
 }
+  }
