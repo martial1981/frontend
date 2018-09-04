@@ -1,10 +1,14 @@
 
+import { HttpErrorResponse } from "@angular/common/http";
 import { HttpHeaders } from "@angular/common/http";
 
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import {JwtHelper} from 'angular2-jwt';
-import { Observable } from "rxjs";
+import { Observable } from "rxjs/Observable";
+import "rxjs/add/operator/catch";
+import "rxjs/add/observable/throw";
+
 @Injectable()
 
 export class AuthenticationService{
@@ -89,8 +93,16 @@ export class AuthenticationService{
   } 
   
   saveUser(user: any):Observable<any>{
-    return this.http.post(this.host+"/register",user);
+    return this.http.post(this.host+"/register",user)
+    .catch(this.errorHandler);
   
+ }
   
-}
+  errorHandler(error:HttpErrorResponse ){
+    return Observable.throw(error.message ||"Server Error");
   }
+}
+  
+  
+  
+  
