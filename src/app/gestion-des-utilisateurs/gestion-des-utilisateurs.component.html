@@ -20,13 +20,9 @@
 <input class="form-control" placeholder="retaper le mot de passe" [(ngModel)]="user.repassword" id="repassword"  type="password" name="user.repassword" required />
 </div>
 
-<div class="form-group">
-<label>Roles</label>
-<input class="form-control" placeholder="roles" [(ngModel)]="user.roles" id="roles"  type="text" name="user.roles" required />
-</div>
 
 <div class="form-group">
-<button class="btn btn-default" type="submit" (click)="UpdateUser(user)"  [disabled]="!registerForma.valid"   >Mise à jour</button>
+<button class="btn btn-default" type="submit" (click)="UpdateUser(user)"    >Promote to Admin</button>
 <button class="btn btn-default" type="button" (click)="onSubmitUserAdmin(user)"  [disabled]="!registerForma.valid"   >Sauvgarde</button>
 <button class="btn btn-default" type="button" (click)="ResetFormRegister(registerForm)" >Effacer </button>
 
@@ -35,7 +31,18 @@
 
 
 
+<table class="table table-striped">
+<tr>
+<th>ID</th><th>user Name</th><th>User Roles</th><th align="center">Action</th>
 
+<tr *ngFor="let user of users">
+
+<td>{{user.id}}</td>
+<td>{{user.username}}</td>
+<td>{{user.roles}}</td>
+<td><a href="javascript:void(0)" (click)="editUser(user.username)"><i class="fa fa-eye" aria-hidden="true"></i></a> <a href="javascript:void(0)" (click)="deletevlan(vlan.id)" ><i class="fa fa-trash" aria-hidden="true"></i></a> </td>
+</tr>
+</table>
 
 </div>
 

@@ -12,12 +12,13 @@ import { ToastrService } from 'ngx-toastr';
 export class VlanComponent implements OnInit {
  public vlans : any=[];
   public vlan :any={};
+  vlan_element :any=[];
   constructor(public authService:AuthenticationService,private toastr :ToastrService, private router:Router ) { }
 
   ngOnInit() {
     this.authService.getVlansSwitch()
     .subscribe(data=>{
-      this.vlans=data;
+      this.vlan=data;
       
       
     }, err=>{

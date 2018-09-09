@@ -102,6 +102,19 @@ export class AuthenticationService{
     
     return Observable.throw(error.message||"Server Error");
   }
+  
+   getUsers():Observable<any>{
+    if (this.jwtToken==null)this.loadToken();
+    return this.http.get(this.host+"/user",{headers:new HttpHeaders({'Authorization':this.jwtToken})});
+  }
+  editUser(id :any):Observable<any>{
+    if (this.jwtToken==null)this.loadToken();
+    return this.http.get(this.host+"/user/"+id,{headers:new HttpHeaders({'Authorization':this.jwtToken})});
+  } 
+   updateUser(user: any):Observable<any>{
+    return this.http.post(this.host+"/promotetoadmin",user,{headers:new HttpHeaders({ 'Authorization':this.jwtToken})});
+    
+  }
 }
   
   

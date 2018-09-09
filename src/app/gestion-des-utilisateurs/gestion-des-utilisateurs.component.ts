@@ -20,7 +20,45 @@ export class GestionDesUtilisateursComponent implements OnInit {
   constructor(public authService:AuthenticationService,private toastr :ToastrService, private router:Router) { }
 
   ngOnInit() {
+        this.authService.getUsers()
+    .subscribe(data=>{
+      this.users=data;
+      
+      
+    }, err=>{
+     this.authService.logout();
+      this.router.navigateByUrl('/login');
+      
+    })
   }
+  
+  
+ 
+    editUser(id :any ){
+    this.authService.editUser(id)
+    .subscribe(resp=>{
+       
+      this.user=resp;
+       },err=>{console.log(err);
+    })
+  }
+  
+  
+       UpdateUser(user :any){
+    this.authService.updateUser(user)
+    .subscribe(resp=>{
+        this.users=resp;
+       },err=>{console.log(err);
+    })
+this.toastr.success('Mise à jour réussite !','vlan Mis à jour ');
+
+  }
+    
+
+    
+  
+  
+  
   
    onSubmitUserAdmin(user :any){
      
