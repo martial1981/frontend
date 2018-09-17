@@ -16,13 +16,28 @@ export class AuthenticationService{
    private host1:string="http://10.10.10.1/rest/v1";
   
   private jwtToken=null;
+  private cookieToken=null;
   private roles:Array<any>;
+   public result :any={};
   constructor(private http:HttpClient){
     
   }
   login(user){
     
     return  this.http.post(this.host+"/login",user,{observe:'response'});
+  }
+  loginswitch(){
+    
+    return  this.http.post(this.host1+"/login-sessions",{"userName":"admin","password":"admin"});
+  }
+  saveSwitchCookie(jwt:string){
+    this.cookieToken=jwt;
+    localStorage.setItem('cookie',jwt);
+    
+    }
+  /*loginswitch(user){
+    
+    return  this.http.post(this.host1+"/login-sessions",user,{observe:'response'});
   }
   
   saveToken(jwt:string){
@@ -31,8 +46,25 @@ export class AuthenticationService{
     let jwtHelper=new JwtHelper();
     this.roles=jwtHelper.decodeToken(this.jwtToken).roles;
     
+}
+  /*  saveSwitchCookie(jwt:string){
+    this.cookieToken=jwt;
+    localStorage.setItem('cookie',jwt);
     
-  }
+    }
+  
+   loadSwitchCookie(){
+   this.cookieToken=localStorage.getItem('cookie');
+ }*/
+  
+    saveToken(jwt:string){
+    this.jwtToken=jwt;
+    localStorage.setItem('token',jwt);
+    let jwtHelper=new JwtHelper();
+    this.roles=jwtHelper.decodeToken(this.jwtToken).roles;
+    
+}
+  
   loadToken(){
    this.jwtToken=localStorage.getItem('token');
  }
@@ -115,6 +147,12 @@ export class AuthenticationService{
     return this.http.post(this.host+"/promotetoadmin",user,{headers:new HttpHeaders({ 'Authorization':this.jwtToken})});
     
   }
+  saveBusinessCase(businesscase: any):Observable<any>{
+    return this.http.post(this.host+"/businesscase",businesscase,{headers:new HttpHeaders({ 'Authorization':this.jwtToken})});
+    
+  }
+  
+  
 }
   
   

@@ -43,6 +43,8 @@ import { SysnameComponent } from './sysname/sysname.component';
 import { VlanFormComponent } from './vlan-form/vlan-form.component';
 import{ ChartModule } from 'angular2-chartjs';
 import { MyChartComponent } from './my-chart/my-chart.component';
+import { LoginswitchComponent } from './loginswitch/loginswitch.component';
+import { BusinesscaseComponent } from './businesscase/businesscase.component';
 
 const appRoutes:Routes=[
 {path:"login",component:LoginComponent},
@@ -57,6 +59,8 @@ const appRoutes:Routes=[
 {path:"vlan",component:VlanComponent},
 {path:"vlan-form",component:VlanFormComponent},
 {path:"dasboard-admin",component:DasboardAdminComponent},
+{path:"loginswitch",component:LoginswitchComponent},
+{path:"businesscase",component:BusinesscaseComponent},
 {path:"",redirectTo:"login",pathMatch:"full"},
 
 ];
@@ -100,7 +104,11 @@ const appRoutes:Routes=[
     
     VlanFormComponent,
     
-    MyChartComponent
+    MyChartComponent,
+    
+    LoginswitchComponent,
+    
+    BusinesscaseComponent
   ],
   imports: [
     BrowserModule,RouterModule.forRoot(appRoutes) ,FormsModule,HttpClientModule,ToastrModule.forRoot() , ChartModule

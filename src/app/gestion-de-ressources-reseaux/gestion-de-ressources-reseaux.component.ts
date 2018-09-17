@@ -28,5 +28,9 @@ export class GestionDeRessourcesReseauxComponent implements OnInit {
   
      this.router.navigateByUrl('/dasboard-admin');
   }
+  onLoginSwitchClick(){
+    this.router.navigateByUrl('/loginswitch');
+    
+  }
   
 }

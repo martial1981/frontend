@@ -49,4 +49,8 @@ onGestionDesConfig(){
     this.router.navigateByUrl('/routines-test-troubelshoot');
     
   }
+  onGestionBusinessCase(){
+    this.router.navigateByUrl('/businesscase');
+    
+  }
 }

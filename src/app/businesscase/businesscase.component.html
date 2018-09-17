@@ -1,0 +1,51 @@
+<div class="text-center">
+<h2 class="jumbotron"> Business Case  </h2>
+</div>
+<div class="row">
+<div class="col-md-7">
+
+<form #BusinessForm="ngForm"  >
+ <div class="form-group">
+<label>Business Case number </label>
+<input class="form-control"   placeholder="Case number " type="text" [(ngModel)]="businesscase.casenumber" id="casenumber" name="casenumber" required />
+</div> 
+<div class="form-group">
+<label>Objet </label>
+<input class="form-control"  placeholder="Objet" [(ngModel)]="businesscase.object" id="object"  type="text" name="object" required />
+</div>
+<div class="form-group">
+<label>Sommaire</label>
+<input class="form-control" placeholder="Sommaire" [(ngModel)]="businesscase.summary" id="summary"  type="text" name="summary" required />
+</div>
+<div class="form-group">
+<label>Status</label>
+<input class="form-control" placeholder="Status" [(ngModel)]="businesscase.status" id="status"  type="text" name="status" required />
+</div>
+
+<div class="form-group">
+<button class="btn btn-default" type="submit" (click)="update(vlan)"  [disabled]="!vlanForm.valid" >Mise à jour</button>
+<button class="btn btn-default" type="submit" (click)="onSubmitbusinesscase(businesscase)"  [disabled]="!BusinessForm.valid" >Sauvgarde</button>
+<button class="btn btn-default" type="button" (click)="RestForm()" >Effacer </button>
+
+</div>
+</form>
+
+
+
+<table class="table table-striped">
+<tr>
+<th>ID</th><th>Vlan Name</th><th>Vlan Type</th><th align="center">Quality Of Service</th><th align="center">Action</th>
+
+<tr *ngFor="let vlan of vlans">
+
+<td>{{vlan.id}}</td>
+<td>{{vlan.name}}</td>
+<td>{{vlan.vlan_type}}</td>
+<td>{{vlan.qos}}</td>
+<td><a href="javascript:void(0)" (click)="editvlan(vlan.id)"><i class="fa fa-eye" aria-hidden="true"></i></a> <a href="javascript:void(0)" (click)="deletevlan(vlan.id)" ><i class="fa fa-trash" aria-hidden="true"></i></a> </td>
+</tr>
+</table>
+
+</div>
+
+</div>

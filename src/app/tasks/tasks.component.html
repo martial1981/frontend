@@ -6,6 +6,9 @@
 <button class="btn btn-danger" (click)="onGestionRessourcesReseaux()"   *ngIf="authService.isAdmin()">Gestion De Ressources Reseaux </button>
 <P></P>
 <P></P>
+<button class="btn btn-danger" (click)="onGestionBusinessCase()"   *ngIf="authService.isAdmin()">Gestion Des Business Cases </button>
+<P></P>
+<P></P>
 <button class="btn btn-danger" (click)="onGestionDesUtilisateurs()"   *ngIf="authService.isAdmin()">Gestion Des Utilisateurs</button>
 <P></P>
 <P></P>
@@ -23,22 +26,7 @@
 <P></P>
 <button class="btn btn-danger" (click)="onGestionDesTickets()"   *ngIf="authService.isUser()">Gestion Des Tickets</button>
 <P></P>
-<table class="table table-striped">
-<tr>
-<th>ID</th><th>Task Name</th>
-
-</tr>
-<tr *ngFor="let t of tasks">
-
-<td>{{t.id}}</td>
-<td>{{t.taskName}}</td>
-
-</tr>
-
-
-
-
-</table>
+<app-dasboard-admin></app-dasboard-admin>
 
 
 </div>

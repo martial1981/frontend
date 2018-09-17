@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
     )
     
   }
-  OnLoginSwitch()
+  OnLoginSwitch(user)
   {
   alert("connected to the switch");
   }
