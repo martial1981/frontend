@@ -23,7 +23,7 @@
 </div>
 
 <div class="form-group">
-<button class="btn btn-default" type="submit" (click)="update(vlan)"  [disabled]="!vlanForm.valid" >Mise à jour</button>
+<button class="btn btn-default" type="submit" (click)="update(businesscase)"  [disabled]="!BusinessForm.valid" >Mise à jour</button>
 <button class="btn btn-default" type="submit" (click)="onSubmitbusinesscase(businesscase)"  [disabled]="!BusinessForm.valid" >Sauvgarde</button>
 <button class="btn btn-default" type="button" (click)="RestForm()" >Effacer </button>
 
@@ -36,13 +36,13 @@
 <tr>
 <th>ID</th><th>Vlan Name</th><th>Vlan Type</th><th align="center">Quality Of Service</th><th align="center">Action</th>
 
-<tr *ngFor="let vlan of vlans">
+<tr *ngFor="let businesscase of businesscases">
 
-<td>{{vlan.id}}</td>
-<td>{{vlan.name}}</td>
-<td>{{vlan.vlan_type}}</td>
-<td>{{vlan.qos}}</td>
-<td><a href="javascript:void(0)" (click)="editvlan(vlan.id)"><i class="fa fa-eye" aria-hidden="true"></i></a> <a href="javascript:void(0)" (click)="deletevlan(vlan.id)" ><i class="fa fa-trash" aria-hidden="true"></i></a> </td>
+<td>{{businesscase.casenumber}}</td>
+<td>{{businesscase.object}}</td>
+<td>{{businesscase.summary}}</td>
+<td>{{businesscase.status}}</td>
+<td><a href="javascript:void(0)" (click)="editBusinessCase(businesscase.casenumber)"><i class="fa fa-eye" aria-hidden="true"></i></a> <a href="javascript:void(0)" (click)="deleteBusinessCase(businesscase.casenumber)" ><i class="fa fa-trash" aria-hidden="true"></i></a> </td>
 </tr>
 </table>
 

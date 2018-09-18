@@ -151,7 +151,24 @@ export class AuthenticationService{
     return this.http.post(this.host+"/businesscase",businesscase,{headers:new HttpHeaders({ 'Authorization':this.jwtToken})});
     
   }
+   getBusinessCase():Observable<any>{
+    if (this.jwtToken==null)this.loadToken();
+    return this.http.get(this.host+"/businesscase",{headers:new HttpHeaders({'Authorization':this.jwtToken})});
+  }
   
+  editBusinessCase(casenumber :any):Observable<any>{
+    if (this.jwtToken==null)this.loadToken();
+    return this.http.get(this.host+"/businesscase/"+casenumber,{headers:new HttpHeaders({'Authorization':this.jwtToken})});
+  } 
+  eraseBusinessCase(casenumber :any):Observable<any>{
+    if (this.jwtToken==null)this.loadToken();
+    return this.http.delete(this.host+"/delete/"+casenumber,{headers:new HttpHeaders({'Authorization':this.jwtToken})});
+  } 
+  
+  updateBusinessCase(businesscase: any):Observable<any>{
+    return this.http.post(this.host+"/updatebuisnesscase",businesscase,{headers:new HttpHeaders({ 'Authorization':this.jwtToken})});
+    
+  }
   
 }
   
