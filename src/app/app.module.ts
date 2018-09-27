@@ -61,6 +61,7 @@ const appRoutes:Routes=[
 {path:"dasboard-admin",component:DasboardAdminComponent},
 {path:"loginswitch",component:LoginswitchComponent},
 {path:"businesscase",component:BusinesscaseComponent},
+{path:"sysname",component:SysnameComponent},
 {path:"",redirectTo:"login",pathMatch:"full"},
 
 ];

@@ -14,6 +14,7 @@ import "rxjs/add/observable/throw";
 export class AuthenticationService{
   private host:string="http://localhost:8080";
    private host1:string="http://10.10.10.1/rest/v1";
+
   
   private jwtToken=null;
   private cookieToken=null;
@@ -110,6 +111,12 @@ export class AuthenticationService{
     getVlansSwitch():Observable<any>{
     if (this.jwtToken==null)this.loadToken();
     return this.http.get(this.host1+"/vlans");
+  }
+
+ //systemes info from the switch
+    getSystemsinfo():Observable<any>{
+    if (this.jwtToken==null)this.loadToken();
+    return this.http.get(this.host1+"/system/status");
   }
     editVlan(id :any):Observable<any>{
     if (this.jwtToken==null)this.loadToken();

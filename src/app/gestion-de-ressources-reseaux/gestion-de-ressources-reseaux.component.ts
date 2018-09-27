@@ -32,5 +32,8 @@ export class GestionDeRessourcesReseauxComponent implements OnInit {
     this.router.navigateByUrl('/loginswitch');
     
   }
+onSysClick(){
+this.router.navigateByUrl('/sysname');
+}
   
 }

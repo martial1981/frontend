@@ -2,7 +2,7 @@
 <div class="container">
 <button (click)="onVlanClick()"   *ngIf="authService.isAdmin()" class="btn  btn-default">Vlan</button>
 <button (click)="onVlanSwitchClick()"   *ngIf="authService.isAdmin()" class="btn  btn-default">Vlan Switch</button>
-<button class="btn  btn-default">sysname</button>
+<button (click)="onSysClick()"   *ngIf="authService.isAdmin()"  class="btn  btn-default">sysname</button>
 <button class="btn  btn-default"  *ngIf="authService.isAdmin()"     (click)="onLoginSwitchClick()"  >connect to the switch</button>
 <button class="btn  btn-default">Consultation De Ressources</button>
 <button class="btn  btn-default">Any Cli</button>

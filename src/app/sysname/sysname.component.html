@@ -1,3 +1,20 @@
-<p>
-  sysname works!
-</p>
+<div class="text-center">
+<h2 class="jumbotron"> Sysname info </h2>
+</div>
+<table class="table table-striped">
+
+<tr>
+<th>Name</th><th>Serial Number</th><th>Firmware Version</th><th align="center">Hardware Revision</th><th align="center">Product Model</th><th align="center">Mac Address</th>
+
+<tr *ngFor="let sysname of sysnames">
+<td>{{sysname.name}}</td>
+<td>{{sysname.serial_number}}</td>
+<td>{{sysname.hardware_revision}}</td>
+<td>{{sysname.firmware_revision}}</td>
+<td>{{sysname.product_model}}</td>
+<td>{{sysname.base_ethernet_address.octets}}</td>
+
+
+
+</tr>
+</table>
